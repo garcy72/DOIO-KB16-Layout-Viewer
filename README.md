@@ -35,7 +35,7 @@ DOIO KB16を買って使ってみたものの、キーマップを変えたら�
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/yourusername/DOIO-Layout-Viewer.git
+git clone https://github.com/garcy72/DOIO-KB16-Layout-Viewer.git
 cd DOIO-Layout-Viewer
 
 # 仮想環境を作成
