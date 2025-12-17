@@ -1,0 +1,174 @@
+#:kivy 2.3.1
+
+<RootWidget>:
+    # 背景色
+    canvas.before:
+        Color:
+            rgba: 214/255, 214/255, 238/255, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    # 通常の画像表示方法で背景画像として使用している。
+    Image:
+        id: bg
+        source: 'DOIO.png'
+        fit_mode: 'contain'
+        size_hint: 1, 1
+
+    # ラベルを重ねるためのオーバーレイ
+    FloatLayout:
+        id: overlay
+        size_hint: 1, 1
+
+    # レイヤー選択ラジオボタン
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: 180, 240
+        pos_hint: {'right': 0.97, 'center_y': 0.6}
+        spacing: 8
+        padding: 15
+
+        Label:
+            text: 'レイヤー選択'
+            size_hint_y: None
+            height: 35
+            color: 0.2, 0.4, 0.6, 1
+            bold: True
+            font_size: 16
+
+        Widget:
+            size_hint_y: None
+            height: 5
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 35
+            spacing: 8
+            on_touch_down: layer0_radio.active = True if self.collide_point(*args[1].pos) else layer0_radio.active
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.98, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [5,]
+            CheckBox:
+                id: layer0_radio
+                group: 'layer'
+                active: True
+                size_hint_x: None
+                width: 40
+                color: 0.2, 0.6, 0.8, 1
+            Label:
+                text: 'レイヤー 1'
+                color: 0.1, 0.1, 0.1, 1
+                font_size: 14
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.size
+                padding: [5, 0]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 35
+            spacing: 8
+            on_touch_down: layer1_radio.active = True if self.collide_point(*args[1].pos) else layer1_radio.active
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.98, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [5,]
+            CheckBox:
+                id: layer1_radio
+                group: 'layer'
+                size_hint_x: None
+                width: 40
+                color: 0.2, 0.6, 0.8, 1
+            Label:
+                text: 'レイヤー 2'
+                color: 0.1, 0.1, 0.1, 1
+                font_size: 14
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.size
+                padding: [5, 0]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 35
+            spacing: 8
+            on_touch_down: layer2_radio.active = True if self.collide_point(*args[1].pos) else layer2_radio.active
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.98, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [5,]
+            CheckBox:
+                id: layer2_radio
+                group: 'layer'
+                size_hint_x: None
+                width: 40
+                color: 0.2, 0.6, 0.8, 1
+            Label:
+                text: 'レイヤー 3'
+                color: 0.1, 0.1, 0.1, 1
+                font_size: 14
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.size
+                padding: [5, 0]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 35
+            spacing: 8
+            on_touch_down: layer3_radio.active = True if self.collide_point(*args[1].pos) else layer3_radio.active
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.98, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [5,]
+            CheckBox:
+                id: layer3_radio
+                group: 'layer'
+                size_hint_x: None
+                width: 40
+                color: 0.2, 0.6, 0.8, 1
+            Label:
+                text: 'レイヤー 4'
+                color: 0.1, 0.1, 0.1, 1
+                font_size: 14
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.size
+                padding: [5, 0]
+
+<ButtonPushLabel@Label>:
+    size_hint: None, None
+    size: 65, 65
+    color: 1, 0, 0, 1
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    font_size: 12
+
+<ButtonRotateLabel@Label>:
+    size_hint: None, None
+    size: 80, 20
+    color: 1, 0, 0, 1
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    font_size: 12
